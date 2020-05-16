@@ -7,7 +7,7 @@ const Header = () => {
     <div className='header'>
       <div></div>
       <div className='header__logo'>
-        <span>Christine Dymova</span>
+        <span>Christina Dymova</span>
       </div>
       <ul className='header__links'>
         <li>About</li>
