@@ -19,6 +19,8 @@
     padding: 0;
     display: flex;
     justify-content: flex-end;
+    text-transform: uppercase;
+    font-weight: 300;
 
     li {
       font-size: 18px;
@@ -26,7 +28,7 @@
 
       &:hover {
         cursor: pointer;
-        color: #e91e63;
+        color: var(--pink);
       }
     }
   }

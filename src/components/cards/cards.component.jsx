@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import Card from '../card/card.component';
+import Spinner from '../spinner/spinner.component';
 
-import CARDS_CONTENT from './cards.content';
+import { CardsContext } from '../../providers/cards.provider';
 
 import { getImagesFromFirestore } from '../../firebase/firebase.utils';
 
 import './cards.styles.scss';
 
 const Cards = () => {
-  const [cards, setCards] = useState([]);
+  const { cards, setCards } = useContext(CardsContext);
 
   useEffect(() => {
 
     getImagesFromFirestore()
-      .then((images) => setCards(images));
-  }, []);
+      .then(images => setCards(images));
+  }, [cards]);
 
   return (
     <div className='cards'>
       {
-        cards ?
-          cards.map(card => (
-            <Card key={card.id} card={card} />
-          )) : null
+        cards.map(card => (
+          <Card key={card.id} card={card} />
+        ))
       }
     </div>
   );
