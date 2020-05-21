@@ -19,6 +19,11 @@
 	background: var(--pink);
 }
 
+::selection {
+	background: var(--pink);
+	color: white;
+}
+
 body {
   margin: 0;
   padding: 0;

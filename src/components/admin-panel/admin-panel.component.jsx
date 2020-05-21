@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+
+import { CardsContext } from '../../providers/cards.provider';
+import { CardCreatorContext } from '../../providers/card-creator.provider';
+
+import { getImagesFromFirestore } from '../../firebase/firebase.utils';
 
 import './admin-panel.styles.scss';
 
@@ -8,27 +13,33 @@ const AdminPanel = () => {
     console.log(selectedFile);
   }
 
+  const { cards, setCards } = useContext(CardsContext);
+  const { setCardCreatorVisibility } = useContext(CardCreatorContext);
+
+  useEffect(() => {
+    getImagesFromFirestore()
+      .then(images => setCards(images));
+  }, []);
+
   return (
     <div className='admin-panel'>
-      <span>Admin Panel</span>
-      <div>
-        <label>Name</label>
-        <input type='text' />
+      <div className='admin-panel__header'>
+        <h1>Admin dashboard</h1>
+        <button onClick={() => setCardCreatorVisibility(true)}>Add a new artwork</button>
       </div>
-      <div>
-        <label>Description</label>
-        <textarea />
-      </div>
-      <div>
-        <label>Orientation</label>
-        <select name="select-orientation">
-          <option value="vertical">Vertical</option>
-          <option value="horizontal">Horizontal</option>
-        </select>
-      </div>
-      <div>
-        <input id='selected-file' type='file' onChange={showImage} />
-      </div>
+      {
+        cards.map(card => (
+          <div className='admin-card' key={card.id}>
+            <div className='admin-card__img'>
+              <img src={card.imageUrl} />
+            </div>
+            <div className='admin-card__content'>
+              <h2>{card.name}<i className="fas fa-pen-square"></i></h2>
+              <p>{card.description}</p>
+            </div>
+          </div>
+        ))
+      }
     </div>
   );
 };

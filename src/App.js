@@ -5,9 +5,11 @@ import Header from './components/header/header.component';
 import Cards from './components/cards/cards.component';
 import Modal from './components/modal/modal.component';
 import AdminPanel from './components/admin-panel/admin-panel.component';
+import CardCreator from './components/card-creator/card-creator.component';
 
 import ModalProvider from './providers/modal.provider';
 import CardsProvider from './providers/cards.provider';
+import CardCreatorProvider from './providers/card-creator.provider';
 
 import './App.css';
 
@@ -15,15 +17,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
-      <CardsProvider>
-        <Switch>
+      <Switch>
+        <CardsProvider>
           <Route
             exact
             path='/'
             render={
               () => (
                 <React.Fragment>
+                  <Header />
                   <ModalProvider>
                     <Cards />
                     <Modal />
@@ -32,9 +34,22 @@ const App = () => {
               )
             }
           />
-          <Route exact path='/admin' component={AdminPanel} />
-        </Switch>
-      </CardsProvider>
+          <Route
+            exact
+            path='/admin'
+            render={
+              () => (
+                <React.Fragment>
+                  <CardCreatorProvider>
+                    <AdminPanel />
+                    <CardCreator />
+                  </CardCreatorProvider>
+                </React.Fragment>
+              )
+            }
+          />
+        </CardsProvider>
+      </Switch>
     </div>
   );
 }
