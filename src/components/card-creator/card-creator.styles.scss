@@ -21,6 +21,7 @@
   .inner {
     width: 800px;
     margin: auto;
+    padding: 20px 0;
     background-color: white;
     border-radius: 10px;
     position: relative;
@@ -30,16 +31,19 @@
     
     &__close-button {
       position: absolute;
-      top: -10px;
-      right: -10px;
-      width: 30px;
-      height: 30px;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background-color: white;
-      border: 2px solid black;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &:hover {
+        color: var(--pink);
+      }
       
       i {
         font-size: 20px;
@@ -53,6 +57,7 @@
 
     &__name {
       width: 90%;
+      margin-bottom: 10px;
 
       input {
         outline-color: var(--pink);
@@ -63,6 +68,7 @@
     
     &__description {
       width: 90%;
+      margin-bottom: 10px;
 
       textarea {
         resize: none;
@@ -71,11 +77,14 @@
         height: 200px;
         overflow: auto;
         font-size: 16px;
+        font-family: 'Roboto Condensed', sans-serif;
+
       }
     }
 
     &__orientation {
       width: 90%;
+      margin-bottom: 10px;
 
       select {
         outline-color: var(--pink);
@@ -86,7 +95,51 @@
       };
     }
 
+    &__selected-file {
+      width: 90%;
+
+      input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+
+      label {
+        display: block;
+        box-sizing: border-box;
+
+        width: 100%;
+        padding: 10px 0;
+        background-color: var(--pink);
+        border: 1px solid var(--pink);
+        outline: none;
+        color: white;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: bolder;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        text-align: center;
+  
+        &:hover {
+          background-color: white;
+          color: var(--pink);
+        }
+
+        i {
+          margin-right: 5px;
+        }
+      }
+  
+    }
+
     button {
+      width: 90%;
       padding: 10px;
       background-color: var(--pink);
       border: 1px solid var(--pink);
@@ -98,10 +151,17 @@
       font-weight: bolder;
       border-radius: 4px;
       cursor: pointer;
+      font-family: 'Roboto Condensed', sans-serif;
+
+      margin-top: 10px;
 
       &:hover {
         background-color: white;
         color: var(--pink);
+      }
+
+      i {
+        margin-right: 5px;
       }
 
     }

@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/header/header.component';
 import Cards from './components/cards/cards.component';
 import Modal from './components/modal/modal.component';
-import AdminPanel from './components/admin-panel/admin-panel.component';
+import Dashboard from './components/dashboard/dashboard.component';
 import CardCreator from './components/card-creator/card-creator.component';
 
 import ModalProvider from './providers/modal.provider';
@@ -41,7 +41,7 @@ const App = () => {
               () => (
                 <React.Fragment>
                   <CardCreatorProvider>
-                    <AdminPanel />
+                    <Dashboard />
                     <CardCreator />
                   </CardCreatorProvider>
                 </React.Fragment>

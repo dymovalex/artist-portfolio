@@ -54,9 +54,17 @@ const CardCreator = () => {
           </select>
         </div>
         <div className='inner__selected-file'>
+          <label htmlFor="selected-file">
+            {
+              imageToUpload ?
+                <i className="far fa-check-square"></i> :
+                null
+            }
+            Choose a file
+          </label>
           <input id='selected-file' type='file' accept=".jpg, .jpeg, .png" onChange={handleFileSelect} />
         </div>
-        <button onClick={handleClick}>Upload an image</button>
+        <button onClick={handleClick}><i className="fas fa-cloud-upload-alt"></i>Upload an image</button>
       </div>
     </div>
   );
