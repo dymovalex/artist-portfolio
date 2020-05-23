@@ -1,15 +1,13 @@
 .dashboard {
   max-width: 1000px;
-  padding-top: 20px;
   margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  grid-gap: 20px;
+  height: 100%;
 
   .header {
     display: flex;
     justify-content: space-between;
-    height: auto;
+    height: 80px;
+    padding: 20px 0;
 
     &__logo {
       cursor: pointer;
@@ -51,5 +49,11 @@
       }
 
     }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-gap: 20px;
   }
 }

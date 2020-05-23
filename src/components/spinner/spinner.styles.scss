@@ -1,6 +1,6 @@
 .spinner-container {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: calc(100% - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@
     width: 6px;
     height: 18px;
     border-radius: 20%;
-    background: #fff;
+    background: var(--pink);
   }
   .lds-spinner div:nth-child(1) {
     transform: rotate(0deg);
