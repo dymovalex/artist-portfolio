@@ -8,11 +8,6 @@ import { getImagesFromFirestore } from '../../firebase/firebase.utils';
 import './admin-panel.styles.scss';
 
 const AdminPanel = () => {
-  const showImage = () => {
-    const selectedFile = document.getElementById('selected-file').files[0];
-    console.log(selectedFile);
-  }
-
   const { cards, setCards } = useContext(CardsContext);
   const { setCardCreatorVisibility } = useContext(CardCreatorContext);
 

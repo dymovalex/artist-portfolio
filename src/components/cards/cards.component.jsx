@@ -13,7 +13,6 @@ const Cards = () => {
   const { cards, setCards } = useContext(CardsContext);
 
   useEffect(() => {
-    console.log('useEffect')
     getImagesFromFirestore()
       .then(images => setCards(images));
   }, []);

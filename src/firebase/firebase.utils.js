@@ -33,3 +33,29 @@ export const getImagesFromFirestore = async () => {
 
   return images;
 };
+
+export const uploadImageToFirebaseStorage = async (image) => {
+  const storageRef = storage.ref();
+  const newImageRef = storageRef.child(`images/${image.name}`);
+  await newImageRef.put(image);
+
+  const imageRef = storage.ref(`images/${image.name}`);
+  const imageUrl = await imageRef.getDownloadURL();
+  return imageUrl;
+};
+
+export const createNewImageInFirestore = async ({ imageUrl, name, description, orientation }) => {
+  console.log({ imageUrl, name, description, orientation });
+  try {
+    await firestore
+      .collection('images')
+      .add({
+        imageUrl,
+        name,
+        description,
+        orientation
+      });
+  } catch (error) {
+    console.log(error);
+  }
+};
