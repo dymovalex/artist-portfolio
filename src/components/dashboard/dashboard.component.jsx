@@ -39,7 +39,7 @@ const Dashboard = () => {
       </div>
       {
         !isLoading ?
-          <div className='dashboards__cards'>
+          <div className='dashboard__cards'>
             {cards.map(card => (
               <DashboardCard key={card.id} card={card} />
             ))}

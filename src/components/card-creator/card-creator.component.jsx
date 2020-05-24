@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 
+import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
 
 import { uploadImageToFirebaseStorage, createNewImageInFirestore } from '../../firebase/firebase.utils';
@@ -13,11 +14,12 @@ const CardCreator = () => {
   const [description, setDescription] = useState('');
   const [orientation, setOrientation] = useState('vertical');
 
+  const { currentCard, setCurrentCard } = useContext(CardsContext);
   const { cardCreatorVisibility, setCardCreatorVisibility } = useContext(CardCreatorContext);
 
   useEffect(() => {
     if (imageUrl) {
-      createNewImageInFirestore({ imageUrl, name, description, orientation });
+      createNewImageInFirestore({ imageUrl, name, description, orientation, imageToUpload });
       setCardCreatorVisibility(false);
     }
   }, [imageUrl]);
@@ -35,22 +37,28 @@ const CardCreator = () => {
   return (
     <div className={`card-creator ${cardCreatorVisibility ? 'visible' : ''}`}>
       <div className='inner'>
-        <div className='inner__close-button' onClick={() => setCardCreatorVisibility(false)}>
+        <div
+          className='inner__close-button'
+          onClick={
+            () => {
+              setCardCreatorVisibility(false);
+              setCurrentCard(null);
+            }}>
           <i className="fas fa-times" ></i>
         </div>
         <div className='inner__name'>
           <label>Name</label>
-          <input type='text' onChange={e => setName(e.target.value)} />
+          <input defaultValue={currentCard ? currentCard.name : ''} type='text' onChange={e => setName(e.target.value)} />
         </div>
         <div className='inner__description'>
           <label>Description</label>
-          <textarea onChange={e => setDescription(e.target.value)} />
+          <textarea defaultValue={currentCard ? currentCard.description : ''} onChange={e => setDescription(e.target.value)} />
         </div>
         <div className='inner__orientation'>
           <label>Orientation</label>
           <select name="select-orientation" onChange={e => setOrientation(e.target.value)}>
             <option value="vertical">Vertical</option>
-            <option value="horizontal">Horizontal</option>
+            <option selected={currentCard && currentCard.orientation === 'horizontal' ? true : false} value="horizontal">Horizontal</option>
           </select>
         </div>
         <div className='inner__selected-file'>

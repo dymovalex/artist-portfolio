@@ -1,5 +1,5 @@
 .card-creator {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -77,8 +77,6 @@
         height: 200px;
         overflow: auto;
         font-size: 16px;
-        font-family: 'Roboto Condensed', sans-serif;
-
       }
     }
 
@@ -151,7 +149,6 @@
       font-weight: bolder;
       border-radius: 4px;
       cursor: pointer;
-      font-family: 'Roboto Condensed', sans-serif;
 
       margin-top: 10px;
 

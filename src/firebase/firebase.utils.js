@@ -44,7 +44,24 @@ export const uploadImageToFirebaseStorage = async (image) => {
   return imageUrl;
 };
 
-export const createNewImageInFirestore = async ({ imageUrl, name, description, orientation }) => {
+export const deleteImageFromFirestore = async (image) => {
+  const storageRef = storage.ref();
+  const imageToRemoveRef = storageRef.child(`images/${image.fileName}`);
+  await imageToRemoveRef.delete();
+  console.log('img was deleted from FB');
+
+  try {
+    await firestore
+      .collection('images')
+      .doc(image.id)
+      .delete();
+    console.log('img was deleted from FS');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const createNewImageInFirestore = async ({ imageUrl, name, description, orientation, imageToUpload }) => {
   console.log({ imageUrl, name, description, orientation });
   try {
     await firestore
@@ -53,7 +70,8 @@ export const createNewImageInFirestore = async ({ imageUrl, name, description, o
         imageUrl,
         name,
         description,
-        orientation
+        orientation,
+        fileName: imageToUpload.name
       });
   } catch (error) {
     console.log(error);
