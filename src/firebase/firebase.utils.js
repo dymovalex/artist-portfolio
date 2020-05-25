@@ -61,6 +61,23 @@ export const deleteImageFromFirestore = async (image) => {
   }
 }
 
+export const updateImageInFirestore = async (id, name, description, orientation) => {
+  try {
+    console.log({ id, name, description, orientation });
+    await firestore
+      .collection('images')
+      .doc(id)
+      .update({
+        name,
+        description,
+        orientation
+      });
+    console.log('image was updated!')
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const createNewImageInFirestore = async ({ imageUrl, name, description, orientation, imageToUpload }) => {
   console.log({ imageUrl, name, description, orientation });
   try {

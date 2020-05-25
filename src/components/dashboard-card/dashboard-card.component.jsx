@@ -3,12 +3,12 @@ import React, { useContext } from 'react';
 import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
 
-import { deleteImageFromFirestore } from '../../firebase/firebase.utils';
+import { deleteImageFromFirestore, getImagesFromFirestore } from '../../firebase/firebase.utils';
 
 import './dashboard-card.styles.scss';
 
 const DashboardCard = ({ card }) => {
-  const { getCard } = useContext(CardsContext);
+  const { setCards, getCard } = useContext(CardsContext);
   const { setCardCreatorVisibility } = useContext(CardCreatorContext);
 
   return (
@@ -23,7 +23,17 @@ const DashboardCard = ({ card }) => {
         }>
         <i className="fas fa-pen-square"></i>
       </div>
-      <div className='dashboard-card__delete-button' onClick={() => deleteImageFromFirestore(card)}>
+      <div className='dashboard-card__delete-button'
+        onClick={
+          async () => {
+            await deleteImageFromFirestore(card);
+            getImagesFromFirestore()
+              .then(images => {
+                setCards(images);
+              });
+          }
+        }
+      >
         <i className="fas fa-minus-square"></i>
       </div>
       <div className='dashboard-card__img'>
