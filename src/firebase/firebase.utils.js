@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/storage';
+import 'firebase/auth';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBht8kSIlrrfIrxiyOGp0rmrWDN3cb-Ddc",
@@ -16,6 +17,7 @@ firebase.initializeApp(firebaseConfig);
 
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
+export const auth = firebase.auth();
 
 export const getImagesFromFirestore = async () => {
   let images = [];
@@ -93,4 +95,30 @@ export const createNewImageInFirestore = async ({ imageUrl, name, description, o
   } catch (error) {
     console.log(error);
   }
+};
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+  const snapShot = await userRef.get();
+
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createAt,
+        ...additionalData
+      });
+    } catch (error) {
+      console.log('error creating user', error.message);
+    }
+  }
+
+  return userRef;
 };

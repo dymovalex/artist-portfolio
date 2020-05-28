@@ -7,7 +7,7 @@ import Spinner from '../spinner/spinner.component';
 import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
 
-import { getImagesFromFirestore } from '../../firebase/firebase.utils';
+import { auth, getImagesFromFirestore } from '../../firebase/firebase.utils';
 
 import './dashboard.styles.scss';
 
@@ -43,6 +43,7 @@ const Dashboard = () => {
             {cards.map(card => (
               <DashboardCard key={card.id} card={card} />
             ))}
+            <button onClick={() => auth.signOut()}>CLICK</button>
           </div> :
           <Spinner />
       }
