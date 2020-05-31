@@ -1,0 +1,87 @@
+.hero-container {
+  width: 100%;
+  height: calc(100% - 60px);
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/Taieri.png');
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__greetings {
+      & span{
+        position: relative;
+        overflow: hidden;
+        display: block;
+        line-height: 1.2;
+      }
+      
+      & span::after{
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--pink);
+          animation: a-ltr-after 2s cubic-bezier(.77,0,.18,1) forwards;
+          transform: translateX(-101%);
+      }
+      
+      & span::before{
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: white;
+          animation: a-ltr-before 2s cubic-bezier(.77,0,.18,1) forwards;
+          transform: translateX(0);
+      }
+      
+      & span:nth-of-type(2)::before,
+      & span:nth-of-type(2)::after {
+          animation-delay: 1s;
+      }
+
+      & span:nth-of-type(2) {
+        animation-delay: 1s;
+      }
+      
+      @keyframes a-ltr-after{
+          0% {transform: translateX(-100%)}
+          100% {transform: translateX(101%)}
+      }
+      
+      @keyframes a-ltr-before{
+          0% {transform: translateX(0)}
+          100% {transform: translateX(200%)}
+      }
+    }
+
+    &__hi,
+    &__name {
+      font-size: 120px;
+      font-family: 'Amatic SC', cursive;
+      text-shadow: 1px 1px 1px var(--pink);
+    }
+
+    &__description {
+      font-size: 26px;
+      color: white;
+      background-color: var(--pink);
+      animation: description-opacity 4s ease-in-out;
+    }
+
+    @keyframes description-opacity {
+      0% {opacity: 0;}
+      75% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+  }
+}

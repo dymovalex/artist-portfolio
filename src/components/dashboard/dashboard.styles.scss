@@ -42,13 +42,11 @@
       font-weight: bolder;
       border-radius: 4px;
       cursor: pointer;
-      /*transition: hover .5s ease-in-out;*/
 
       &:hover {
         background-color: white;
         color: var(--pink);
       }
-
     }
   }
 
@@ -56,5 +54,17 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, 1fr);
     grid-gap: 20px;
+  }
+
+  &__sign-out {
+    color: var(--pink);
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
   }
 }

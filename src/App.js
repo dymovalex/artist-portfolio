@@ -2,6 +2,7 @@ import React, { useContext, useRef, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from './components/header/header.component';
+import Hero from './components/hero/hero.component';
 import Cards from './components/cards/cards.component';
 import Modal from './components/modal/modal.component';
 import Dashboard from './components/dashboard/dashboard.component';
@@ -54,6 +55,7 @@ const App = () => {
               () => (
                 <React.Fragment>
                   <Header />
+                  <Hero />
                   <ModalProvider>
                     <Cards />
                     <Modal />

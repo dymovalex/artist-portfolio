@@ -43,10 +43,10 @@ const Dashboard = () => {
             {cards.map(card => (
               <DashboardCard key={card.id} card={card} />
             ))}
-            <button onClick={() => auth.signOut()}>CLICK</button>
           </div> :
           <Spinner />
       }
+      <a className='dashboard__sign-out' onClick={() => auth.signOut()}>Sign out</a>
     </div>
   );
 };
