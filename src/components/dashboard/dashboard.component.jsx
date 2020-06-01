@@ -6,6 +6,7 @@ import Spinner from '../spinner/spinner.component';
 
 import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
+import { AppContext } from '../../providers/app.provider';
 
 import { auth, getImagesFromFirestore } from '../../firebase/firebase.utils';
 
@@ -16,6 +17,7 @@ const Dashboard = () => {
 
   const { cards, setCards } = useContext(CardsContext);
   const { setCardCreatorVisibility } = useContext(CardCreatorContext);
+  const { setOverflowHidden } = useContext(AppContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,7 +37,12 @@ const Dashboard = () => {
             <span>portfolio dashboard</span>
           </Link>
         </div>
-        <button onClick={() => setCardCreatorVisibility(true)}>Add a new artwork</button>
+        <button
+          onClick={() => {
+            setCardCreatorVisibility(true);
+            setOverflowHidden(true);
+          }}>Add a new artwork
+        </button>
       </div>
       {
         !isLoading ?

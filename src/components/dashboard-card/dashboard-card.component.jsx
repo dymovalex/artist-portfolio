@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
+import { AppContext } from '../../providers/app.provider';
 
 import { deleteImageFromFirestore, getImagesFromFirestore } from '../../firebase/firebase.utils';
 
@@ -10,6 +11,7 @@ import './dashboard-card.styles.scss';
 const DashboardCard = ({ card }) => {
   const { setCards, getCard } = useContext(CardsContext);
   const { setCardCreatorVisibility } = useContext(CardCreatorContext);
+  const { setOverflowHidden } = useContext(AppContext);
 
   return (
     <div className='dashboard-card' key={card.id}>
@@ -19,6 +21,7 @@ const DashboardCard = ({ card }) => {
           () => {
             getCard(card.id);
             setCardCreatorVisibility(true);
+            setOverflowHidden(true);
           }
         }>
         <i className="fas fa-pen-square"></i>

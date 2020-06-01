@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
 
 import { ModalContext } from '../../providers/modal.provider';
+import { AppContext } from '../../providers/app.provider';
 
 import './card.styles.scss';
 
 const Card = ({ card, ...otherProps }) => {
   const { setModalVisibility, setImageUrl } = useContext(ModalContext);
+  const { setOverflowHidden } = useContext(AppContext);
 
   const openModal = () => {
     setModalVisibility(true);
+    setOverflowHidden(true);
     setImageUrl(card.imageUrl);
   };
 

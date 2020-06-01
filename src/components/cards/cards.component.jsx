@@ -25,12 +25,15 @@ const Cards = () => {
 
   return (
     !isLoading ?
-      <div className='cards'>
-        {
-          cards.map(card => (
-            <Card key={card.id} card={card} />
-          ))
-        }
+      <div className='cards-container'>
+        <h2>Check out my works</h2>
+        <div className='cards'>
+          {
+            cards.map(card => (
+              <Card key={card.id} card={card} />
+            ))
+          }
+        </div>
       </div> :
       <Spinner />
   );

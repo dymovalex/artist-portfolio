@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
+import { AppContext } from '../../providers/app.provider';
 
 import { uploadImageToFirebaseStorage, createNewImageInFirestore, updateImageInFirestore, getImagesFromFirestore } from '../../firebase/firebase.utils';
 
@@ -16,18 +17,19 @@ const CardCreator = () => {
 
   const { setCards, currentCard, setCurrentCard } = useContext(CardsContext);
   const { cardCreatorVisibility, setCardCreatorVisibility } = useContext(CardCreatorContext);
+  const { setOverflowHidden } = useContext(AppContext);
 
   useEffect(() => {
     if (imageUrl) {
       createNewImageInFirestore({ imageUrl, name, description, orientation, imageToUpload });
       setCardCreatorVisibility(false);
+      setOverflowHidden(false);
     }
   }, [imageUrl]);
 
   useEffect(() => {
     if (currentCard) {
       console.log('currentCard');
-      //setImageUrl(currentCard.imageUrl);
       setName(currentCard.name);
       setDescription(currentCard.description);
       setOrientation(currentCard.orientation);
@@ -51,6 +53,7 @@ const CardCreator = () => {
 
   const resetState = () => {
     setCardCreatorVisibility(false);
+    setOverflowHidden(false);
     setCurrentCard(null);
     setName('');
     setDescription('');

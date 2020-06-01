@@ -14,6 +14,7 @@ import CardsProvider from './providers/cards.provider';
 import CardCreatorProvider from './providers/card-creator.provider';
 
 import { UserContext } from './providers/user.provider';
+import { AppContext } from './providers/app.provider';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -21,7 +22,7 @@ import './App.css';
 
 const App = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-
+  const { overflowHidden } = useContext(AppContext);
 
   useEffect(() => {
     let unsubscribeFromAuth = null;
@@ -45,7 +46,10 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ overflow: overflowHidden ? 'hidden' : 'auto' }}
+    >
       <Switch>
         <CardsProvider>
           <Route
