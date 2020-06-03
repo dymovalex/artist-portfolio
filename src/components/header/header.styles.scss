@@ -27,12 +27,14 @@
     font-weight: 300;
 
     li {
-      font-size: 18px;
-      padding-right: 10px;
-
-      &:hover {
-        cursor: pointer;
-        color: var(--pink);
+      a {
+        font-size: 18px;
+        padding-right: 10px;
+  
+        &:hover {
+          cursor: pointer;
+          color: var(--pink);
+        }
       }
     }
   }

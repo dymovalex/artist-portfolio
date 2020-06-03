@@ -8,6 +8,8 @@ import Modal from './components/modal/modal.component';
 import Dashboard from './components/dashboard/dashboard.component';
 import CardCreator from './components/card-creator/card-creator.component';
 import SignIn from './components/sign-in/sign-in.component';
+import About from './components/about/about.component';
+import Contact from './components/contact/contact.component';
 
 import ModalProvider from './providers/modal.provider';
 import CardsProvider from './providers/cards.provider';
@@ -90,7 +92,32 @@ const App = () => {
               () => currentUser ?
                 (<Redirect to='/admin' />) :
                 (<SignIn />)
-            } />
+            }
+          />
+          <Route
+            exact
+            path='/about'
+            render={
+              () => (
+                <React.Fragment>
+                  <Header />
+                  <About />
+                </React.Fragment>
+              )
+            }
+          />
+          <Route
+            exact
+            path='/contact'
+            render={
+              () => (
+                <React.Fragment>
+                  <Header />
+                  <Contact />
+                </React.Fragment>
+              )
+            }
+          />
         </CardsProvider>
       </Switch>
     </div>
