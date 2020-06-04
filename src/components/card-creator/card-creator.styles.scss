@@ -164,3 +164,11 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .card-creator {
+    .inner {
+      width: 90%;
+    }
+  }
+}

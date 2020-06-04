@@ -68,3 +68,21 @@
     }
   }
 }
+
+@media screen and (max-width: 420px) {
+  .dashboard {
+    .header {
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+
+      &__logo {
+        margin-bottom: 10px;
+      }
+
+      button {
+        width: 80%;
+      }
+    }
+  }
+}

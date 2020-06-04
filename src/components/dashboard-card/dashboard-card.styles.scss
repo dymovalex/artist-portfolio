@@ -7,7 +7,6 @@
 
   &:hover {
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.1);
-    /*transform: scale(1.001);*/
   }
 
   &__edit-button {
@@ -57,6 +56,18 @@
     p {
       margin-top: 5px;
       text-align: justify;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .dashboard-card {
+    &__img {
+      min-width: 110px;
+      min-height: 80px;
+      img {
+        max-width: 110px;
+      }
     }
   }
 }

@@ -97,7 +97,6 @@
     justify-content: space-between;
   }
 
-
   &__button {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -122,7 +121,6 @@
     align-items: center;
     outline: none;
     
-    
     &:hover {
       background-color: #fff;
       text-shadow: none;
@@ -140,7 +138,6 @@
     &_inverse {
       border: solid 2px black;
       color: black;
-      
 
       &:hover {
         background-color: black;
@@ -149,12 +146,21 @@
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       }
     }
-    
 }
   }
 
   &:hover .content__front > *:first-child,
   &:hover .content__front > *:last-child {
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    grid-column: span 1;
+  
+    &.vertical {
+      grid-row: span 2;
+    }
   }
 }

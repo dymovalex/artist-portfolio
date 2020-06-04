@@ -35,3 +35,11 @@
     align-items: center;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .cards-container {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}
