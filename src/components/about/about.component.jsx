@@ -5,7 +5,7 @@ import './about.styles.scss';
 const About = () => {
   return (
     <div className='about'>
-      <div className='image'></div>
+      <div className='image' style={{  backgroundImage: process.env.PUBLIC_URL + 'url(/assets/avatar.jpg)'}}></div>
       <div className='description'>
         <h2>About me</h2>
         <div>
