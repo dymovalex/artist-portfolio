@@ -3,15 +3,29 @@ import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/auth';
 
-var firebaseConfig = {
-  apiKey: "AIzaSyBht8kSIlrrfIrxiyOGp0rmrWDN3cb-Ddc",
-  authDomain: "artist-portfolio.firebaseapp.com",
-  databaseURL: "https://artist-portfolio.firebaseio.com",
-  projectId: "artist-portfolio",
-  storageBucket: "artist-portfolio.appspot.com",
-  messagingSenderId: "63171668287",
-  appId: "1:63171668287:web:c14138f0da30ef85f4cb8a"
-};
+let firebaseConfig;
+
+if(process.env.NODE_ENV !== 'production') {
+  firebaseConfig = {
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASE_URL,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
+  }
+} else {
+  firebaseConfig = {
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID
+  }
+}
 
 firebase.initializeApp(firebaseConfig);
 
@@ -50,14 +64,12 @@ export const deleteImageFromFirestore = async (image) => {
   const storageRef = storage.ref();
   const imageToRemoveRef = storageRef.child(`images/${image.fileName}`);
   await imageToRemoveRef.delete();
-  console.log('img was deleted from FB');
 
   try {
     await firestore
       .collection('images')
       .doc(image.id)
       .delete();
-    console.log('img was deleted from FS');
   } catch (error) {
     console.log(error);
   }
@@ -65,7 +77,6 @@ export const deleteImageFromFirestore = async (image) => {
 
 export const updateImageInFirestore = async (id, name, description, orientation) => {
   try {
-    console.log({ id, name, description, orientation });
     await firestore
       .collection('images')
       .doc(id)
@@ -74,14 +85,12 @@ export const updateImageInFirestore = async (id, name, description, orientation)
         description,
         orientation
       });
-    console.log('image was updated!')
   } catch (error) {
     console.log(error);
   }
 }
 
 export const createNewImageInFirestore = async ({ imageUrl, name, description, orientation, imageToUpload }) => {
-  console.log({ imageUrl, name, description, orientation });
   try {
     await firestore
       .collection('images')

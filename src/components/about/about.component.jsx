@@ -17,8 +17,8 @@ const About = () => {
         <div className='contact'>
           <h2>Feel free to contact me with followings</h2>
           <div className='contact__links'>
-            <span><i className="fas fa-envelope"></i></span>
-            <span><i className="fab fa-vk"></i></span>
+            <a href='mailto:dymovachristina@gmail.com' target='_blank' rel='noopener noreferrer'><i className="fas fa-envelope"></i></a>
+            <a href='https://vk.com/bulkurochka'><i className="fab fa-vk"></i></a>
           </div>
         </div>
       </div>

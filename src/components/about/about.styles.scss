@@ -10,7 +10,7 @@
     height: 200px;
     border-radius: 50%;
     border: 2px solid var(--pink);
-    background-image: url('../../assets/0KGCHBUa3zE.jpg');
+    background-image: url('../../assets/avatar.jpg');
     background-size: cover;
   }
   
@@ -48,7 +48,7 @@
         display: flex;
         margin: auto;
     
-        span {
+        a {
           display: block;
           text-align: center;
           width: 44px;
@@ -73,6 +73,12 @@
 
     .image {
       width: 200px;
+    }
+
+    .description {
+      h2 {
+        margin: 20px auto 10px auto;
+      }
     }
   }
 }

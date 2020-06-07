@@ -53,7 +53,7 @@ const Dashboard = () => {
           </div> :
           <Spinner />
       }
-      <a className='dashboard__sign-out' onClick={() => auth.signOut()}>Sign out</a>
+      <span className='dashboard__sign-out' onClick={() => auth.signOut()}>Sign out</span>
     </div>
   );
 };

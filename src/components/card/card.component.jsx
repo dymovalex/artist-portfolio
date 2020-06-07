@@ -5,7 +5,7 @@ import { AppContext } from '../../providers/app.provider';
 
 import './card.styles.scss';
 
-const Card = ({ card, ...otherProps }) => {
+const Card = ({ card }) => {
   const { setModalVisibility, setImageUrl } = useContext(ModalContext);
   const { setOverflowHidden } = useContext(AppContext);
 

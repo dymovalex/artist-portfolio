@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from './components/header/header.component';
@@ -27,7 +27,6 @@ const App = () => {
 
   useEffect(() => {
     let unsubscribeFromAuth = null;
-    console.log('App is mounting', currentUser);
     unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -48,7 +47,7 @@ const App = () => {
 
   return (
     <div
-      className="App"
+      className='App'
       style={{ overflow: overflowHidden ? 'hidden' : 'auto' }}
     >
       <Switch>

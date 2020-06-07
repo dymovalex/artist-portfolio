@@ -4,7 +4,12 @@ import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
 import { AppContext } from '../../providers/app.provider';
 
-import { uploadImageToFirebaseStorage, createNewImageInFirestore, updateImageInFirestore, getImagesFromFirestore } from '../../firebase/firebase.utils';
+import {
+  uploadImageToFirebaseStorage,
+  createNewImageInFirestore,
+  updateImageInFirestore,
+  getImagesFromFirestore
+} from '../../firebase/firebase.utils';
 
 import './card-creator.styles.scss';
 
@@ -29,7 +34,6 @@ const CardCreator = () => {
 
   useEffect(() => {
     if (currentCard) {
-      console.log('currentCard');
       setName(currentCard.name);
       setDescription(currentCard.description);
       setOrientation(currentCard.orientation);
