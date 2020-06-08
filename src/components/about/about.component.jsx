@@ -8,11 +8,15 @@ const About = () => {
       <div className='image' style={{  backgroundImage: `url(${process.env.PUBLIC_URL}/assets/avatar.jpg)` }}></div>
       <div className='description'>
         <h2>About me</h2>
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non tortor convallis, varius arcu sed, lacinia lectus. Vestibulum dignissim arcu non felis congue pulvinar. Aenean convallis faucibus tincidunt. Nulla viverra, tellus vel auctor pharetra, quam diam commodo nisl, pulvinar consectetur massa diam sit amet enim. Ut tempor, turpis ac sollicitudin consequat, enim lorem faucibus ante, dapibus cursus lorem enim pharetra enim. Vestibulum eget metus libero. Pellentesque vel rhoncus dui. Sed et mollis tortor. Etiam molestie sem sed sem scelerisque, eu pellentesque risus mattis.
+        <div className='description__text'>I started drawing at an early age. When my parents noticed the inclination for this, I took a kids drawing course of sorts, and then went to an art school followed by an art college. My relationship with art, though, has been pretty complicated due to different issues, resulting in having multiple breaks from drawing – the longest one lasting several years.</div>
 
-          Ut non nisl auctor, scelerisque risus ut, blandit velit. Curabitur ac scelerisque leo. Pellentesque neque ligula, tincidunt congue faucibus sit amet, fermentum id mauris. Morbi quis sagittis tellus. Aenean finibus tortor vitae bibendum mollis. Donec mauris nulla, efficitur non malesuada ut, finibus ut nulla. Sed ligula nulla, vulputate vel blandit eget, congue a dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ac risus at eros aliquet ullamcorper. Nunc tempus augue quis hendrerit laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. In tempor tempor tellus, vel hendrerit mauris.
-        </div>
+        <div className='description__text'>Now my desire to draw is fueled by wanting to prove, mainly to myself, that I can get better at this. I take time to hone the skill by researching, practicing and, most importantly, finishing what I paint (I used to abandon a piece the moment I didn’t feel like working on it anymore.) In the long run, I dream of getting as good as the artists I look up to.</div>
+
+        <div className='description__text'>Like many, I used traditional materials to create artworks at first, but now I’m into digital painting and the occasional sketching with pencil or charcoal.</div>
+
+        <div className='description__text'>Work-wise, my aspiration is to land a job in the game development sphere to have a peek at how games come to life.</div>
+
+        <div className='description__text'>As for my personal taste, I have a soft spot for ‘messy’ bold paintings that stand out and catch your eye. I’m currently exploring Photoshop and trying to find my own style that I will enjoy working in and looking at.</div>
 
         <div className='contacts'>
           <h2>Feel free to contact me with followings</h2>
