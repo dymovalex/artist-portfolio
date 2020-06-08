@@ -10,7 +10,6 @@
     height: 200px;
     border-radius: 50%;
     border: 2px solid var(--pink);
-    /*background-image: url('../../public/assets/avatar.jpg');*/
     background-size: cover;
   }
   
@@ -28,7 +27,7 @@
       background-color: var(--pink);
     }
 
-    .contact {
+    .contacts {
       margin: auto;
       display: flex;
       flex-direction: column;

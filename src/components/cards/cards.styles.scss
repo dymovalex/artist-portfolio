@@ -15,7 +15,7 @@
     display: block;
     content: '';
     height: 3px;
-    background: linear-gradient(to var(--direction, left), var(--pink), transparent);
+    background: linear-gradient(var(--direction, left), var(--pink), transparent);
   }
 
   h2:after {

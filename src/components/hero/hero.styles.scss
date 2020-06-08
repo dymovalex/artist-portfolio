@@ -55,13 +55,21 @@
       }
       
       @keyframes a-ltr-after{
-          0% {transform: translateX(-100%)}
-          100% {transform: translateX(101%)}
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(101%);
+          }
       }
       
       @keyframes a-ltr-before{
-          0% {transform: translateX(0)}
-          100% {transform: translateX(200%)}
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(200%);
+          }
       }
     }
 

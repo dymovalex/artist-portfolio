@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-//import CARDS_CONTENT from '../components/cards/cards.content';
 
 export const CardsContext = createContext();
 
