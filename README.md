@@ -2,16 +2,16 @@
 
 ## Sign In
 
-![Sign In page](https://github.com/dymovalex/social-media-dashboard/raw/master/readme/SignIn.png)
+![Sign In page](https://github.com/dymovalex/artist-portfolio/raw/master/readme/SignIn.png)
 
 ## Dashboard
 
-![Dashboard page](https://github.com/dymovalex/social-media-dashboard/raw/master/readme/Dashboard.png)
+![Dashboard page](https://github.com/dymovalex/artist-portfolio/raw/master/readme/Dashboard.png)
 
 ## Adding new work
 
-![Adding new work](https://github.com/dymovalex/social-media-dashboard/raw/master/readme/AddNewImage.png)
+![Adding new work](https://github.com/dymovalex/artist-portfolio/raw/master/readme/AddNewImage.png)
 
 ## Editing
 
-![Editing](https://github.com/dymovalex/social-media-dashboard/raw/master/readme/EditImage.png)
+![Editing](https://github.com/dymovalex/artist-portfolio/raw/master/readme/EditImage.png)
