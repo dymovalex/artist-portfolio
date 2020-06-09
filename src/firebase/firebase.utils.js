@@ -3,28 +3,14 @@ import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/auth';
 
-let firebaseConfig;
-
-if(process.env.NODE_ENV !== 'production') {
-  firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-    databaseURL: process.env.REACT_APP_DATABASE_URL,
-    projectId: process.env.REACT_APP_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_APP_ID
-  }
-} else {
-  firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    databaseURL: process.env.DATABASE_URL,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID
-  }
+const firebaseConfig = {
+  apiKey: 'AIzaSyBht8kSIlrrfIrxiyOGp0rmrWDN3cb-Ddc',
+  authDomain: 'artist-portfolio.firebaseapp.com',
+  databaseURL: 'https://artist-portfolio.firebaseio.com',
+  projectId: 'artist-portfolio',
+  storageBucket: 'artist-portfolio.appspot.com',
+  messagingSenderId: '63171668287',
+  appId: '1:63171668287:web:c14138f0da30ef85f4cb8a'
 }
 
 firebase.initializeApp(firebaseConfig);
