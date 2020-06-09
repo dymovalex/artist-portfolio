@@ -15,11 +15,11 @@
     display: block;
     content: '';
     height: 3px;
-    background: linear-gradient(var(--direction, left), var(--pink), transparent);
+    background: linear-gradient(to left, var(--pink), transparent);
   }
 
   h2:after {
-    --direction: right;
+    background: linear-gradient(to right, var(--pink), transparent);
   }
 
   .cards {
