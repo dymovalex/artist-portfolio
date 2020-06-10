@@ -26,7 +26,7 @@ const Cards = () => {
   return (
     !isLoading ?
       <div className='cards-container'>
-        <h2>Check out my works</h2>
+        <h2>Here are my works</h2>
         <div className='cards'>
           {
             cards.map(card => (

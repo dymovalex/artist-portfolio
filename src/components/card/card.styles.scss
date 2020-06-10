@@ -71,6 +71,10 @@
       color: white;
       overflow-y: hidden;
 
+      .content__name {
+        text-shadow: 0px 0px 4px black;
+      }
+
       & > *:first-child {
         transform: translateY(calc(-100% - 10px));
         transition: transform 0.2s linear;

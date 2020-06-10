@@ -19,7 +19,7 @@ const About = () => {
         <div className='description__text'>As for my personal taste, I have a soft spot for ‘messy’ bold paintings that stand out and catch your eye. I’m currently exploring Photoshop and trying to find my own style that I will enjoy working in and looking at.</div>
 
         <div className='contacts'>
-          <h2>Feel free to contact me with followings</h2>
+          <h2>Feel free to contact me</h2>
           <div className='contacts__links'>
             <a href='mailto:dymovachristina@gmail.com' target='_blank' rel='noopener noreferrer'><i className="fas fa-envelope"></i></a>
             <a href='https://vk.com/bulkurochka'><i className="fab fa-vk"></i></a>
