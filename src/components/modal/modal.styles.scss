@@ -50,5 +50,11 @@
         width: auto;
         height: 100%;
       }
+
+      img.origin-size {
+        width: auto;
+        height: auto;
+        position: fixed;
+      }
   }
 }
