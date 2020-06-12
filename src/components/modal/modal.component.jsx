@@ -45,6 +45,14 @@ const Modal = () => {
     setLeftIndent(e.clientX - imageX / window.innerWidth * e.clientX);
   };
 
+  const handleTouch = (e) => {
+    e.preventDefault();
+    if(!originSizeOfAnImage) return;
+    const {clientX, clientY} = e.touches[0];
+    setTopIndent(clientY - imageY / window.innerHeight * clientY);
+    setLeftIndent(clientX - imageX / window.innerWidth * clientX);
+  };
+
   const handleImgClick = () => {
     setOriginSizeOfAnImage(!originSizeOfAnImage);
   };
@@ -53,6 +61,7 @@ const Modal = () => {
     <div
       className={`modal ${modalVisibility ? 'visible' : ''}`}
       onMouseMove={handleMouseMove}
+      onTouchMove={handleTouch}
     >
       <div
         className='modal__close-button'
