@@ -16,10 +16,28 @@ const Modal = () => {
   const [leftIndent, setLeftIndent] = useState(0);
 
   useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [modalVisibility, originSizeOfAnImage]);
+
+  useEffect(() => {
     const image = document.querySelector('.inner__image');
     setImageX(image.offsetWidth);
     setImageY(image.offsetHeight);
   }, [originSizeOfAnImage]);
+
+  const handleKeyDown = (e) => {
+    if(e.key !== 'Escape') return;
+    if(originSizeOfAnImage) {
+      setOriginSizeOfAnImage(false);
+    } else if(modalVisibility) {
+      setModalVisibility(false);
+      setOverflowHidden(false);
+    }
+  };
 
   const handleMouseMove = (e) => {
     if(!originSizeOfAnImage) return;
