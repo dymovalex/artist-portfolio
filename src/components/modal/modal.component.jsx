@@ -17,47 +17,41 @@ const Modal = () => {
 
   useEffect(() => {
     const image = document.querySelector('.inner__image');
-    //console.log(image.offsetWidth, image.offsetHeight);
     setImageX(image.offsetWidth);
     setImageY(image.offsetHeight);
-  }, [originSizeOfAnImage])
+  }, [originSizeOfAnImage]);
 
   const handleMouseMove = (e) => {
     if(!originSizeOfAnImage) return;
-    //setLeftIndent()
-    console.log(window.innerWidth);
-    console.log(e.clientX);
-    setTopIndent(- imageY / window.innerHeight * e.clientY);
-    setLeftIndent(- imageX / window.innerWidth * e.clientX);
+    setTopIndent(e.clientY - imageY / window.innerHeight * e.clientY);
+    setLeftIndent(e.clientX - imageX / window.innerWidth * e.clientX);
   };
 
-  const handleImgClick = (e) => {
-    if(!originSizeOfAnImage) {
-      setOriginSizeOfAnImage(true);
-    } else {
-      setOriginSizeOfAnImage(false);
-    }
-    console.log(e.currentTarget);
-    console.log(e.currentTarget.offsetWidth, e.currentTarget.offsetHeight);
+  const handleImgClick = () => {
+    setOriginSizeOfAnImage(!originSizeOfAnImage);
   };
 
   return (
-    <div className={`modal ${modalVisibility ? 'visible' : ''}`}           onClick={handleImgClick}
-    onMouseMove={handleMouseMove}>
+    <div
+      className={`modal ${modalVisibility ? 'visible' : ''}`}
+      onMouseMove={handleMouseMove}
+    >
+      <div
+        className='modal__close-button'
+        onClick={() => {
+          setModalVisibility(false);
+          setOverflowHidden(false);
+          setOriginSizeOfAnImage(false);
+        }}
+      >
+        <i className="fas fa-times" ></i>
+      </div>
       <div className='inner'>
-        <div
-          className='inner__close-button'
-          onClick={() => {
-            setModalVisibility(false);
-            setOverflowHidden(false);
-          }}
-        >
-          <i className="fas fa-times" ></i>
-        </div>
         <img
           src={imageUrl}
           alt='full screen'
           className={`${originSizeOfAnImage ? 'origin-size' : ''} inner__image`}
+          onClick={handleImgClick}
           style={{
             top: `${topIndent}px`,
             left: `${leftIndent}px`
