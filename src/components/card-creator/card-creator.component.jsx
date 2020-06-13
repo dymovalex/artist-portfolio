@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import Picker from 'emoji-picker-react';
 
 import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
@@ -19,6 +20,8 @@ const CardCreator = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [orientation, setOrientation] = useState('vertical');
+  const [chosenEmoji, setChosenEmoji] = useState(null);
+  const [pickerVisibility, setPickerVisibility] = useState(false);
 
   const { setCards, currentCard, setCurrentCard } = useContext(CardsContext);
   const { cardCreatorVisibility, setCardCreatorVisibility } = useContext(CardCreatorContext);
@@ -38,7 +41,13 @@ const CardCreator = () => {
       setDescription(currentCard.description);
       setOrientation(currentCard.orientation);
     }
-  }, [currentCard])
+  }, [currentCard]);
+
+  useEffect(() => {
+    if(chosenEmoji) {
+      setDescription(description + chosenEmoji.emoji);
+    }
+  }, [chosenEmoji])
 
   const handleFileSelect = () => {
     const selectedFile = document.getElementById('selected-file').files[0];
@@ -64,8 +73,17 @@ const CardCreator = () => {
     setOrientation('vertical');
   }
 
+  const onEmojiClick = (e, emojiObject) => {
+    setChosenEmoji(emojiObject);
+  };
+
   return (
     <div className={`card-creator ${cardCreatorVisibility ? 'visible' : ''}`}>
+      {
+        pickerVisibility ?
+          <Picker onEmojiClick={onEmojiClick} /> :
+          null
+      }
       <div className='inner'>
         <div
           className='inner__close-button'
@@ -77,7 +95,12 @@ const CardCreator = () => {
           <input type='text' value={name} onChange={e => setName(e.target.value)} />
         </div>
         <div className='inner__description'>
-          <label>Description</label>
+          <div>
+            <label>Description</label>
+            <div onClick={() => setPickerVisibility(!pickerVisibility)}>
+              <i className="far fa-laugh-beam"></i>
+            </div>
+          </div>
           <textarea value={description} onChange={e => setDescription(e.target.value)} />
         </div>
         <div className='inner__orientation'>
