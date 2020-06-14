@@ -13,17 +13,16 @@
   transition: opacity .3s ease-in-out;
   font-size: 20px;
 
-  .emoji-picker-react {
-    position: absolute;
-    right: 0;
-    top: 30px;
-    width: 250px;
-    z-index: 20;
-  }
-
   &.visible {
     opacity: 1;
     pointer-events: all;
+  }
+
+  .emoji-mart {
+    position: absolute;
+    right: calc(50% - 360px);
+    height: 420px;
+    z-index: 5;
   }
 
   .inner {
@@ -80,7 +79,7 @@
 
       div {
         display: flex;
-        margin-bottom: 2px;
+        margin-bottom: 4px;
         justify-content: space-between;
 
         div {
@@ -200,6 +199,10 @@
   .card-creator {
     .inner {
       width: 90%;
+    }
+
+    .emoji-mart {
+      right: calc(50% - 156px);
     }
   }
 }

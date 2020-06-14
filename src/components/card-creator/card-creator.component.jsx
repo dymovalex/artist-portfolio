@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Picker from 'emoji-picker-react';
+import { Picker } from 'emoji-mart';
 
 import { CardsContext } from '../../providers/cards.provider';
 import { CardCreatorContext } from '../../providers/card-creator.provider';
@@ -13,6 +13,7 @@ import {
 } from '../../firebase/firebase.utils';
 
 import './card-creator.styles.scss';
+import 'emoji-mart/css/emoji-mart.css';
 
 const CardCreator = () => {
   const [imageToUpload, setImageToUpload] = useState(null);
@@ -45,13 +46,12 @@ const CardCreator = () => {
 
   useEffect(() => {
     if(chosenEmoji) {
-      setDescription(description + chosenEmoji.emoji);
+      setDescription(description + chosenEmoji.native);
     }
   }, [chosenEmoji])
 
   const handleFileSelect = () => {
     const selectedFile = document.getElementById('selected-file').files[0];
-    console.log(selectedFile);
     setImageToUpload(selectedFile);
   }
 
@@ -71,9 +71,10 @@ const CardCreator = () => {
     setName('');
     setDescription('');
     setOrientation('vertical');
+    setPickerVisibility(false);
   }
 
-  const onEmojiClick = (e, emojiObject) => {
+  const onEmojiClick = (emojiObject) => {
     setChosenEmoji(emojiObject);
   };
 
@@ -81,8 +82,14 @@ const CardCreator = () => {
     <div className={`card-creator ${cardCreatorVisibility ? 'visible' : ''}`}>
       {
         pickerVisibility ?
-          <Picker onEmojiClick={onEmojiClick} /> :
-          null
+          <Picker
+            onClick={onEmojiClick}
+            title=''
+            emoji=''
+            perLine={8}
+            style={
+              currentCard ? {top: '350px'} : {top: '320px'}
+            }/> : null
       }
       <div className='inner'>
         <div
@@ -98,7 +105,7 @@ const CardCreator = () => {
           <div>
             <label>Description</label>
             <div onClick={() => setPickerVisibility(!pickerVisibility)}>
-              <i className="far fa-laugh-beam"></i>
+              <i className="far fa-smile"></i>
             </div>
           </div>
           <textarea value={description} onChange={e => setDescription(e.target.value)} />
