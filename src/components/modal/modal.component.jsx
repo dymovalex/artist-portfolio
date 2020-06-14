@@ -74,6 +74,9 @@ const Modal = () => {
         <i className="fas fa-times" ></i>
       </div>
       <div className='inner'>
+        <div className='inner__magnifying-glass'>
+          <i className="fas fa-search-plus"></i>
+        </div>
         <img
           src={imageUrl}
           alt='full screen'
