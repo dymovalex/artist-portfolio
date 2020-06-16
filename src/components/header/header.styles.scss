@@ -3,6 +3,7 @@
   height: 60px;
   display: flex;
   justify-content: space-between;
+  background-color: var(--dark-purple);
 
   & > * {
     min-width: 240px;
@@ -14,6 +15,7 @@
     
     span {
       font-family: 'Amatic SC', cursive;
+      color: var(--purple-white);
     }
   }
 
@@ -29,10 +31,11 @@
       a {
         font-size: 18px;
         padding-right: 20px;
+        color: var(--purple-white);
   
         &:hover {
           cursor: pointer;
-          color: var(--pink);
+          color: var(--purple);
         }
       }
     }

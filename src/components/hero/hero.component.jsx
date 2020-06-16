@@ -4,7 +4,7 @@ import './hero.styles.scss';
 
 const Hero = () => {
   return (
-    <div className='hero-container' style={{  backgroundImage: `url(${process.env.PUBLIC_URL}/assets/Taieri.png)` }}>
+    <div className='hero-container'>
       <div className='hero'>
         <div className='hero__greetings'>
           <span className='hero__hi'>Hi! I am</span>

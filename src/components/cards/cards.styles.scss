@@ -8,6 +8,7 @@
     font-size: 24px;
     margin: 0;
     margin-bottom: 60px;
+    color: var(--dark-purple);
   }
   
   h2:before,
@@ -15,11 +16,11 @@
     display: block;
     content: '';
     height: 3px;
-    background: linear-gradient(to left, var(--pink), transparent);
+    background: linear-gradient(to left, var(--purple), transparent);
   }
 
   h2:after {
-    background: linear-gradient(to right, var(--pink), transparent);
+    background: linear-gradient(to right, var(--purple), transparent);
   }
 
   .cards {

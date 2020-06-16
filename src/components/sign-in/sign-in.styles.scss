@@ -15,7 +15,7 @@
     padding: 5px;
     border-radius: 5px;
     font-size: 20px;
-    background-color: var(--pink);
+    background-color: var(--purple);
     color: white;
     text-align: center;
     display: flex;
@@ -41,7 +41,7 @@
       height: 34px;
       margin-bottom: 10px;
       padding: 5px;
-      outline-color: var(--pink);
+      outline-color: var(--purple);
     }
 
     input[type='submit'] {
@@ -49,8 +49,8 @@
       height: 50px;
       align-self: center;
       padding: 10px;
-      background-color: var(--pink);
-      border: 1px solid var(--pink);
+      background-color: var(--purple);
+      border: 1px solid var(--purple);
       outline: none;
       color: white;
       letter-spacing: 0.5px;
@@ -62,7 +62,7 @@
 
       &:hover {
         background-color: white;
-        color: var(--pink);
+        color: var(--purple);
       }
     }
   }

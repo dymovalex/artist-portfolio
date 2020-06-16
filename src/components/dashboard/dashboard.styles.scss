@@ -8,13 +8,15 @@
     justify-content: space-between;
     height: 80px;
     margin: 20px 0;
-
+    background-color: var(--purple-white);
+    
     &__logo {
       cursor: pointer;
       
       span {
         display: block;
         text-align: center;
+        color: black;
       }
       
       span:nth-child(1) {
@@ -32,8 +34,8 @@
       height: 50px;
       align-self: center;
       padding: 10px;
-      background-color: var(--pink);
-      border: 1px solid var(--pink);
+      background-color: var(--dark-purple);
+      border: 1px solid var(--dark-purple);
       outline: none;
       color: white;
       letter-spacing: 0.5px;
@@ -45,7 +47,7 @@
 
       &:hover {
         background-color: white;
-        color: var(--pink);
+        color: var(--dark-purple);
       }
     }
   }
@@ -57,7 +59,7 @@
   }
 
   &__sign-out {
-    color: var(--pink);
+    color: var(--purple);
     display: block;
     text-align: center;
     margin: 10px 0;
