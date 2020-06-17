@@ -33,7 +33,7 @@
           height: 100%;
           background: var(--dark-purple);
           animation: a-ltr-after 2s cubic-bezier(.77,0,.18,1) forwards;
-          transform: translateX(-100%);
+          transform: translateX(-101%);
       }
       
       & span::before{
@@ -62,7 +62,7 @@
             transform: translateX(-100%);
           }
           100% {
-            transform: translateX(100%);
+            transform: translateX(101%);
           }
       }
       
